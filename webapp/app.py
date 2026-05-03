@@ -1,7 +1,10 @@
 from flask import Flask, render_template_string, jsonify
 import sys, os
 
+# Add parent directory to path for Render deployment
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.getcwd())
+
 from services.fadakka_engine import FadakkaEngine
 
 app = Flask(__name__)
