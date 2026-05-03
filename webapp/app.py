@@ -347,7 +347,8 @@ def manifest():
     })
 
 if __name__ == '__main__':
+    import os
     saved = engine.load_results()
     print(f"✅ {len(saved) if saved else 0} assets cached")
-    print(f"\n📱 http://192.168.0.42:5000\n")
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
