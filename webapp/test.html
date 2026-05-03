@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="background:#0a0a0f;color:white;padding:20px;font-family:Arial;">
+    <h2>API Test</h2>
+    <button onclick="test()" style="padding:15px;font-size:16px;">Test API</button>
+    <div id="result" style="margin-top:20px;word-break:break-all;"></div>
+    <script>
+    function test() {
+        document.getElementById('result').innerHTML = 'Fetching...';
+        fetch('/api/data')
+            .then(r => r.json())
+            .then(d => {
+                document.getElementById('result').innerHTML = 
+                    '<h3 style="color:#33cc33">SUCCESS! ' + d.length + ' assets loaded</h3>' +
+                    '<p>First: ' + d[0].symbol + ' - ' + d[0].status + '</p>';
+            })
+            .catch(e => {
+                document.getElementById('result').innerHTML = 
+                    '<h3 style="color:#ff3333">ERROR: ' + e.message + '</h3>';
+            });
+    }
+    </script>
+</body>
+</html>

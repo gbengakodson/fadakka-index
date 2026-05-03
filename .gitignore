@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+fadakka_data.json
+subscribers.json
+.env
+test_*.py
+*.apk
+build/
+bin/
